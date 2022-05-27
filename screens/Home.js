@@ -1,49 +1,40 @@
-import React, { Component } from "react";
-import {
-    View,
-    Text,
-    StyleSheet,
-    SafeAreaView,
-    TouchableOpacity,
-    Platform,
-    StatusBar,
-    ImageBackground,
-    Image
-} from "react-native";
+import { StatusBar } from 'expo-status-bar';
+import React, {Component} from 'react';
+import { Text, View, StyleSheet,Platform, SafeAreaView, TouchableOpacity, StatusBar, ImageBackground, Image} from 'react-native';
+
+
 
 export default class HomeScreen extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <SafeAreaView style={styles.droidSafeArea} />
-                <ImageBackground source={require('../assets/bg.png')} style={styles.backgroundImage}>
-                    <View style={styles.titleBar}>
-                        <Text style={styles.titleText}>ISS Tracker App</Text>
-                    </View>
+    render (){
+        return(
+            <View style={styles.container} >
+            <SafeAreaView style={styles.droidSafeArea}/>
+            <ImageBackground source={require('../assets/bg_image.png')} style={styles.backgroundImage}>
+            <View style={styles.titleBar}>
+            <Text style={styles.titleText}>   ISS Tracker App  </Text>
+            </View>
 
-                    <TouchableOpacity style={styles.routeCard} onPress={() =>
-                        this.props.navigation.navigate("IssLocation")
-                    }>
-                        <Text style={styles.routeText}>ISS Location</Text>
-                        <Text style={styles.knowMore}>{"Know More --->"}</Text>
-                        <Text style={styles.bgDigit}>1</Text>
-                        <Image source={require("../assets/iss_icon.png")} style={styles.iconImage}></Image>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.routeCard} onPress={() =>
-                        this.props.navigation.navigate("Meteors")
-                    }>
-                        <Text style={styles.routeText}>Meteors</Text>
-                        <Text style={styles.knowMore}>{"Know More --->"}</Text>
-                        <Text style={styles.bgDigit}>2</Text>
-                        <Image source={require("../assets/meteor_icon.png")} style={styles.iconImage}></Image>
-                    </TouchableOpacity>
-
-                </ImageBackground>
+            <TouchableOpacity style={styles.routeCard } onPress={()=>
+            this.props.navigation.navigate("IssLocation")} >
+                 <Text style={styles.routeText}> ISS Location </Text> 
+                 <Text style={styles.knowMore}> Know More.... </Text> 
+                 <Text style={styles.bgDigit}> 1 </Text> 
+                 <Image source={require("../assets/iss_icon.png")} style={styles.iconImage} ></Image>
+            </TouchableOpacity>
+            
+            <TouchableOpacity style={styles.routeCard} onPress={()=>
+            this.props.navigation.navigate("Meteor")} > 
+            <Text style={styles.routeText}> Meteors </Text> 
+            <Text style={styles.knowMore}> Know More.... </Text> 
+            <Text style={styles.bgDigit}> 2 </Text> 
+            <Image source={require("../assets/meteor_icon.png")} style={styles.iconImage} ></Image>
+            </TouchableOpacity>        
+            </ImageBackground>
             </View>
         )
     }
 }
+
 
 const styles = StyleSheet.create({
     container: {
